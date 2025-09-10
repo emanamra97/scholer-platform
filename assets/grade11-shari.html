@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الصف الحادي عشر - الفرع الشرعي</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+        background-color: #f8f9fa;
+      }
+      .subject-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        padding: 25px;
+        text-align: center;
+        transition: 0.3s ease;
+      }
+      .subject-card:hover {
+        transform: translateY(-5px);
+      }
+      .subject-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      .browse-button {
+        display: inline-block;
+        background-color: #6f42c1;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+      .browse-button:hover {
+        background-color: #5a32a3;
+      }
+        /* زر الرجوع - نفس ستايل الصفحة السابقة */
+      .back-btn {
+        background-color: #6c757d;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+      .back-btn:hover {
+        background-color: #5a6268;
+        color: white;
+      }
+
+      /* العنوان والزر في نفس السطر */
+      .header-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 40px;
+      }
+      .header-row h2 {
+        margin: 0;
+        text-align: center;
+        flex: 1;
+      }
+      .header-row .back-btn {
+        position: absolute;
+        right: 0; /* زر على اليمين */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+    <!-- العنوان + زر العودة -->
+      <div class="header-row">
+        <h2>📚 الصف الحادي عشر - الفرع الشرعي</h2>
+        <a href="../index.html" class="back-btn">← العودة للصفحة الرئيسية</a>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- اللغة العربية (1) -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">اللغة العربية (1)</div>
+            <a
+              href="subject-content11shari.html?subject=arabic1"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+
+        <!-- اللغة العربية (2) -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">اللغة العربية (2)</div>
+            <a
+              href="subject-content11shari.html?subject=arabic2"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+
+        <!-- الرياضيات -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">الرياضيات</div>
+            <a
+              href="subject-content11shari.html?subject=math"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+
+        <!-- التكنولوجيا -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">التكنولوجيا</div>
+            <a
+              href="subject-content11shari.html?subject=tech"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+
+        <!-- التاريخ -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">التاريخ</div>
+            <a
+              href="subject-content11shari.html?subject=history"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+
+        <!-- العقيدة -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">العقيدة</div>
+            <a
+              href="subject-content11shari.html?subject=aqidah"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+
+        <!-- الفقه الإسلامي وأصوله -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">الفقه الإسلامي وأصوله</div>
+            <a
+              href="subject-content11shari.html?subject=fiqh"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+
+        <!-- الحديث الشريف وعلومه -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">الحديث الشريف وعلومه</div>
+            <a
+              href="subject-content11shari.html?subject=hadith"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+
+        <!-- القران الكريم وعلومه -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">القران الكريم وعلومه</div>
+            <a
+              href="subject-content11shari.html?subject=quran"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+
+        <!-- أساليب الدعوة وفن الخطاب -->
+        <div class="col">
+          <div class="subject-card">
+            <div class="subject-title">أساليب الدعوة وفن الخطاب</div>
+            <a
+              href="subject-content11shari.html?subject=dawah"
+              class="browse-button"
+              >📂 تصفح المحتوى</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

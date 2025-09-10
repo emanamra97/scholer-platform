@@ -1,0 +1,197 @@
+.flex-direction-nav a.flex-prev,
+.flex-direction-nav a.flex-next {
+  position: absolute !important;
+  top: 50% !important;
+  margin: 0 !important;
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  transform: translateY(-50%) !important;
+  z-index: 9999 !important;
+}
+
+.flex-direction-nav .flex-prev {
+  right: 10px !important; /* بدل left */
+}
+
+.flex-direction-nav .flex-next {
+  left: 10px !important;  /* بدل right */
+}
+/* حل سريع لتعديل اتجاه كروت الخدمات */
+.service-item {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  text-align: right;
+}
+
+.service-item .icon {
+  margin-left: 30px;  /* بدل margin-right */
+  margin-right: 0;
+}
+
+.owl-nav button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+/* اجعل الـ nav row-reverse لأننا بالعربي */
+.header-area .main-nav {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* اللوغو يروح عاليمين */
+.header-area .main-nav .logo {
+  order: 1;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* شريط البحث يبقى بجانب اللوغو */
+.header-area .main-nav .search-input {
+  order: 2;
+  margin-right: 15px;
+  margin-left: auto;
+}
+
+/* القائمة تكون على اليسار */
+.header-area .main-nav .nav {
+  order: 3;
+  margin-left: 0;
+  margin-right: auto;
+}
+#sectionModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  z-index: 1001;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#modalBackdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.section-btn {
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+}
+
+#closeModal {
+  margin-top: 10px;
+  background-color: #e74c3c;
+}
+
+
+/* حاوية الأزرار */
+#sectionModal .sections-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* أزرار الأقسام */
+#sectionModal .section-btn {
+  flex: 1;
+  min-width: 110px;
+  padding: 12px;
+  background: linear-gradient(135deg, #9b59b6, #e056fd);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* مسافة بين الأيقونة والنص */
+}
+
+#sectionModal .section-btn:hover {
+  background: linear-gradient(135deg, #8e44ad, #c445f4);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(155, 89, 182, 0.4);
+}
+.contact-section {
+  background: #fff;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px; /* مسافة تفصل عن آراء الطلاب */
+  border-top: 1px solid #eee;
+}
+
+.contact-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.contact-section .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.contact-section .social-icons a {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e0e0e0; /* دائرة رمادية فاتحة */
+  color: #333;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.contact-section .social-icons a:hover {
+  background: #6c63ff; /* بنفسجي عند المرور */
+  color: #fff;
+}
+.event_box {
+  display: flex;               /* تصطف العناصر صف أفقي */
+  justify-content: center;     /* توسيط كل العناصر في الوسط */
+  align-items: flex-start;     /* تصطف من الأعلى */
+  gap: 30px;                   /* مسافة بين الصور */
+  flex-wrap: wrap;             /* إذا زاد العدد تنتقل الصور للسطر التالي */
+}
+
+.event_outer {
+  flex: 0 0 auto;              /* تمنع الصورة من التمدد */
+  text-align: center;           /* لتوسيط النص أسفل الصورة */
+}
+
+.grade-image {
+  width: auto;                 /* العرض حسب الصورة الأصلية */
+  max-height: 250px;           /* تحديد أقصى ارتفاع للصورة */
+  height: 100%;                /* يحافظ على نسبة الطول */
+}

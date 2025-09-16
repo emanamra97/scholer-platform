@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة التحكم - إدارة المواد</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #f5f5f7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #7b2cbf;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .container {
+      width: 90%;
+      margin: 30px auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #7b2cbf;
+      color: white;
+    }
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .add-btn { background: #2a9d8f; color: white; }
+    .edit-btn { background: #f4a261; color: white; }
+    .delete-btn { background: #e76f51; color: white; }
+    .add-btn:hover { background: #21867a; }
+    .edit-btn:hover { background: #d17c4a; }
+    .delete-btn:hover { background: #c04f39; }
+    input, select {
+      padding: 6px 10px;
+      margin: 4px 0;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+    .form-container {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>⚙️ لوحة التحكم - إدارة المواد</header>
+  <div class="container">
+
+    <!-- نموذج إضافة مادة -->
+    <div class="form-container">
+      <h3>إضافة مادة جديدة</h3>
+      <label>الصف:</label>
+      <select id="classSelect">
+        <option value="العاشر">العاشر</option>
+        <option value="الحادي عشر">الحادي عشر</option>
+        <option value="الثاني عشر">الثاني عشر</option>
+      </select>
+
+      <label>الفرع:</label>
+      <select id="branchSelect">
+        <option value="">-- لا يوجد --</option>
+        <option value="علمي">علمي</option>
+        <option value="أدبي">أدبي</option>
+        <option value="شرعي">شرعي</option>
+      </select>
+
+      <label>اسم المادة:</label>
+      <input type="text" id="subjectInput" placeholder="مثال: رياضيات">
+
+      <button class="add-btn" onclick="addSubject()">إضافة المادة</button>
+    </div>
+
+    <!-- جدول المواد -->
+    <table>
+      <thead>
+        <tr>
+          <th>الصف</th>
+          <th>الفرع</th>
+          <th>اسم المادة</th>
+          <th>إجراءات</th>
+        </tr>
+      </thead>
+      <tbody id="subjectTableBody">
+        <!-- سيتم تعبئتها ديناميكياً -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let subjects = [
+      { cls: "العاشر", branch: "", name: "اللغة العربية" },
+      { cls: "العاشر", branch: "", name: "الرياضيات" },
+      { cls: "الحادي عشر", branch: "علمي", name: "فيزياء" },
+      { cls: "الحادي عشر", branch: "أدبي", name: "تاريخ" },
+      { cls: "الثاني عشر", branch: "علمي", name: "كيمياء" },
+      { cls: "الثاني عشر", branch: "شرعي", name: "فقه" },
+    ];
+
+    const tableBody = document.getElementById("subjectTableBody");
+
+    function renderTable() {
+      tableBody.innerHTML = "";
+      subjects.forEach((subj, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${subj.cls}</td>
+          <td>${subj.branch}</td>
+          <td>${subj.name}</td>
+          <td>
+            <button class="edit-btn" onclick="editSubject(${index})">تعديل</button>
+            <button class="delete-btn" onclick="deleteSubject(${index})">حذف</button>
+          </td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function addSubject() {
+      const cls = document.getElementById("classSelect").value;
+      const branch = document.getElementById("branchSelect").value;
+      const name = document.getElementById("subjectInput").value.trim();
+
+      if (!name) {
+        alert("يرجى كتابة اسم المادة!");
+        return;
+      }
+
+      subjects.push({ cls, branch, name });
+      renderTable();
+      document.getElementById("subjectInput").value = "";
+    }
+
+    function deleteSubject(index) {
+      if (confirm("هل أنت متأكد من حذف هذه المادة؟")) {
+        subjects.splice(index, 1);
+        renderTable();
+      }
+    }
+
+    function editSubject(index) {
+      const subj = subjects[index];
+      const newName = prompt("تعديل اسم المادة:", subj.name);
+      if (newName) subj.name = newName;
+      renderTable();
+    }
+
+    renderTable();
+  </script>
+</body>
+</html>

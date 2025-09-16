@@ -2,268 +2,82 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>الامتحانات السابقة</title>
+  <title>الاختبارات السابقة</title>
   <style>
     body {
       font-family: "Tahoma", sans-serif;
       background: #f5f5f7;
       margin: 0;
       padding: 0;
+      text-align: center;
     }
 
     header {
       background: #7b2cbf;
       color: white;
       padding: 20px;
-      text-align: center;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
     }
 
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      background: #fff;
-      padding: 15px;
-      margin: 20px auto;
-      border-radius: 12px;
-      width: 85%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    .filters select {
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-
-    .filters button {
-      padding: 8px 15px;
-      border: none;
-      border-radius: 8px;
-      background: #7b2cbf;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .filters button:hover {
-      background: #5a189a;
-    }
-
-    .exam-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      width: 90%;
-      margin: 0 auto 40px;
-    }
-
-    .exam-card {
+    .intro {
+      margin: 30px auto;
+      width: 80%;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
       background: #fff;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .class-selection {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px auto;
+      flex-wrap: wrap;
+    }
+
+    .class-card {
+      background: white;
+      padding: 40px;
+      width: 220px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 14px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
       transition: 0.3s;
-    }
-
-    .exam-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .exam-card h3 {
-      font-size: 16px;
-      margin-bottom: 10px;
+      text-decoration: none;
       color: #333;
     }
 
-    .exam-card p {
-      font-size: 13px;
-      color: #555;
-      margin-bottom: 10px;
-    }
-
-    .tags {
-      margin-bottom: 15px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #eee;
-      color: #444;
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 12px;
-      margin-left: 5px;
-    }
-
-    .exam-card a {
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      background: #7b2cbf;
-      color: white;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .exam-card a:hover {
-      background: #5a189a;
+    .class-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+      background: #f3e9ff;
     }
   </style>
 </head>
 <body>
-  
+  <header>📑 الاختبارات السابقة</header>
 
-  <header>📑 الامتحانات السابقة</header>
-
-  <!-- الفلاتر -->
-  <div class="filters">
-    <select id="classFilter">
-      <option value="">اختر الصف</option>
-      <option value="العاشر">العاشر</option>
-      <option value="الحادي عشر">الحادي عشر</option>
-      <option value="الثاني عشر">الثاني عشر</option>
-    </select>
-
-    <select id="branchFilter" style="display:none;">
-      <option value="">اختر الفرع</option>
-      <option value="علمي">علمي</option>
-      <option value="أدبي">أدبي</option>
-      <option value="شرعي">شرعي</option>
-    </select>
-
-    <select id="subjectFilter" style="display:none;">
-      <option value="">اختر المادة</option>
-    </select>
-
-    <button onclick="clearFilters()">مسح الفلاتر</button>
+  <div class="intro">
+    مرحباً بالطلاب! 👋<br>
+    في هذه الصفحة يمكنكم الوصول إلى جميع الاختبارات السابقة للصفوف العاشر، الحادي عشر، والثاني عشر.<br>
+    اختر صفك من المربعات أدناه لعرض قائمة الاختبارات الخاصة به.<br>
+    بالنسبة للصف الحادي عشر والثاني عشر، ستظهر لكم خيارات لتحديد الفرع والمادة.<br>
+    بالنسبة للصف العاشر، ستظهر قائمة المواد مباشرة.<br>
+    بعد اختيار المادة، يمكنكم عرض جميع الاختبارات الخاصة بها وتحميلها بصيغة PDF.
   </div>
 
-  <!-- قائمة الامتحانات -->
-  <div class="exam-list" id="examList"></div>
-
-  <script>
-    const classFilter = document.getElementById("classFilter");
-    const branchFilter = document.getElementById("branchFilter");
-    const subjectFilter = document.getElementById("subjectFilter");
-    const examList = document.getElementById("examList");
-
-    const subjectsData = {
-      "العاشر": ["أحياء","فيزياء","كيمياء","لغة عربية","تربية إسلامية","لغة إنجليزية","تكنولوجيا المعلومات","رياضيات","جغرافيا فلسطين وتاريخها الحديث"],
-      "الحادي عشر": {
-        "علمي": ["لغة عربية","تربية اسلامية","لغة إنجليزية","فيزياء","كيمياء","أحياء","تكنولوجيا","رياضيات"],
-        "أدبي": ["لغة عربية 1","لغة عربية 2","لغة إنجليزية 1","لغة إنجليزية 2","رياضيات","تاريخ","جغرافيا","الثقافة العلمية","تكنولوجيا المعلومات"],
-        "شرعي": ["لغة عربية 1","لغة عربية 2","تاريخ","رياضيات","تكنولوجيا المعلومات","عقيدة","فقه إسلامي وأصوله","الحديث الشريف وعلومه","القرآن الكريم وعلومه","أساليب الدعوة وفن الخطاب"]
-      },
-      "الثاني عشر": {
-        "علمي": ["تربية اسلامية","لغة إنجليزية","فيزياء","كيمياء","أحياء","تكنولوجيا المعلومات","رياضيات 1","رياضيات 2"],
-        "أدبي": ["لغة عربية 1","لغة عربية 2","لغة إنجليزية 1","لغة إنجليزية 2","رياضيات","تاريخ","جغرافيا","الثقافة العلمية","تكنولوجيا المعلومات"],
-        "شرعي": ["لغة عربية 1","لغة عربية 2","تاريخ","رياضيات","تكنولوجيا","عقيدة","الفقه الإسلامي وأصوله","الحديث الشريف وعلومه","القرآن الكريم وعلومه","أساليب الدعوة وفن الخطاب"]
-      }
-    };
-
-    function generateExamCard(cls, branch, subject, year) {
-      // مسار الـ PDF (عدل المسار حسب مكان حفظ الملفات عندك)
-      const pdfLink = `exams/${cls}_${branch}_${subject}_${year}.pdf`.replace(/\s+/g, "_");
-
-      return `
-        <div class="exam-card">
-          <h3>امتحان ${subject} - ${cls}${branch ? " " + branch : ""} - ${year}</h3>
-          <p>وزارة التربية والتعليم</p>
-          <div class="tags">
-            <span class="tag">${cls}</span>
-            ${branch ? `<span class="tag">${branch}</span>` : ""}
-            <span class="tag">${subject}</span>
-            <span class="tag">${year}</span>
-          </div>
-          <a href="${pdfLink}" target="_blank">عرض الامتحان</a>
-        </div>
-      `;
-    }
-
-    function loadRandomExams(cls, branch="") {
-      examList.innerHTML = "";
-      let subjects = cls === "العاشر" ? subjectsData[cls] : subjectsData[cls][branch];
-      if (!subjects) return;
-
-      let exams = [];
-      for (let year = 2020; year <= 2025; year++) {
-        subjects.forEach(sub => {
-          exams.push(generateExamCard(cls, branch, sub, year));
-        });
-      }
-
-      // نعرض 8 عشوائي
-      exams = exams.sort(() => 0.5 - Math.random()).slice(0, 8);
-      examList.innerHTML = exams.join("");
-    }
-
-    function loadSubjectExams(cls, branch, subject) {
-      examList.innerHTML = "";
-      let exams = [];
-      for (let year = 2020; year <= 2025; year++) {
-        exams.push(generateExamCard(cls, branch, subject, year));
-      }
-      examList.innerHTML = exams.join("");
-    }
-
-    function clearFilters() {
-      classFilter.value = "";
-      branchFilter.value = "";
-      subjectFilter.value = "";
-      branchFilter.style.display = "none";
-      subjectFilter.style.display = "none";
-      examList.innerHTML = "";
-    }
-
-    classFilter.addEventListener("change", () => {
-      const cls = classFilter.value;
-      branchFilter.value = "";
-      subjectFilter.value = "";
-      subjectFilter.style.display = "none";
-
-      if (cls === "العاشر") {
-        branchFilter.style.display = "none";
-        subjectFilter.style.display = "inline-block";
-        subjectFilter.innerHTML = `<option value="">اختر المادة</option>` + subjectsData["العاشر"].map(s => `<option value="${s}">${s}</option>`).join("");
-        loadRandomExams(cls);
-      } else if (cls) {
-        branchFilter.style.display = "inline-block";
-        examList.innerHTML = "";
-      } else {
-        branchFilter.style.display = "none";
-        subjectFilter.style.display = "none";
-        examList.innerHTML = "";
-      }
-    });
-
-    branchFilter.addEventListener("change", () => {
-      const cls = classFilter.value;
-      const branch = branchFilter.value;
-      subjectFilter.value = "";
-      if (cls && branch) {
-        subjectFilter.style.display = "inline-block";
-        subjectFilter.innerHTML = `<option value="">اختر المادة</option>` + subjectsData[cls][branch].map(s => `<option value="${s}">${s}</option>`).join("");
-        loadRandomExams(cls, branch);
-      }
-    });
-
-    subjectFilter.addEventListener("change", () => {
-      const cls = classFilter.value;
-      const branch = branchFilter.value;
-      const subject = subjectFilter.value;
-      if (cls && subject) {
-        loadSubjectExams(cls, branch, subject);
-      }
-    });
-  </script>
+  <div class="class-selection">
+    <a href="filters.html?class=العاشر" class="class-card">📘 الصف العاشر</a>
+    <a href="filters.html?class=الحادي عشر" class="class-card">📗 الصف الحادي عشر</a>
+    <a href="filters.html?class=الثاني عشر" class="class-card">📙 الصف الثاني عشر</a>
+  </div>
 </body>
 </html>

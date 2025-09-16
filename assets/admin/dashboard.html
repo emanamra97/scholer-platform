@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة التحكم - Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #f5f5f7;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: #7b2cbf;
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px auto;
+      width: 90%;
+    }
+
+    .card {
+      background: white;
+      width: 220px;
+      padding: 40px 20px;
+      border-radius: 16px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+      background: #f3e9ff;
+    }
+
+    .card span {
+      display: block;
+      margin-top: 10px;
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>📊 لوحة تحكم الإدارة</header>
+
+  <div class="dashboard">
+    <a href="students.html" class="card">
+      الطلاب
+      <span>👥</span>
+    </a>
+
+    <a href="lessons.html" class="card">
+      المواد والدروس
+      <span>📚</span>
+    </a>
+
+    <a href="exams.html" class="card">
+      الاختبارات
+      <span>📝</span>
+    </a>
+
+    <a href="subject.html" class="card">
+  إدارة المواد
+  <span>📖</span>
+   </a>
+
+    <a href="settings.html" class="card">
+      الإعدادات
+      <span>⚙️</span>
+    </a>
+  </div>
+</body>
+</html>
